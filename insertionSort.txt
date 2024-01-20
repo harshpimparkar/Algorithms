@@ -1,0 +1,27 @@
+#include <stdio.h>
+void insertionSort(int array[] , int size) {
+    for(int i=0;i<size;i++){
+        int min = array[i];
+        int j = i-1;
+        while(array[j]>min && j>=0){
+            array[j+1] = array[j];
+            j = j - 1;
+        }
+        array[j+1]=min;
+    }
+}
+void printArray(int array[] , int size){
+    for(int i=0;i<size;i++){
+        printf("%d ",array[i]);
+    }
+    printf("\n\n");    
+}
+int main() {
+    int array[]={13,27,96,43,56,32,37,87,90,10};
+    int size = sizeof(array)/sizeof(array[0]);
+    printf("Before Insertion Sorting: \n");
+    printArray(array,size);
+    printf("After Insertion Sorting: \n");
+    insertionSort(array,size);
+    printArray(array,size);
+}
